@@ -32,7 +32,7 @@ Ele vai pedir para você **escolher uma pasta**. Escolha **Documentos**. É ali 
 Copie o texto abaixo, cole na conversa e envie:
 
 ```
-Instale o editor de vídeo seguindo o INSTALAR.md deste link: https://github.com/eupedromaciel/editor-de-video
+Instale o editor de vídeo seguindo o INSTALAR.md deste link: https://github.com/novosdonos/editor-de-video
 ```
 
 O Claude vai:

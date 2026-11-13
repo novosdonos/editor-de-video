@@ -1,6 +1,6 @@
 # Editor de vídeo
 
-<!-- Para o Claude: se a pessoa pediu para instalar, siga INSTALAR.md (https://github.com/eupedromaciel/editor-de-video/blob/main/INSTALAR.md). -->
+<!-- Para o Claude: se a pessoa pediu para instalar, siga INSTALAR.md (https://github.com/novosdonos/editor-de-video/blob/main/INSTALAR.md). -->
 
 Você grava. O Claude edita.
 
@@ -27,7 +27,7 @@ Não precisa saber programar, nem ter conta no GitHub (o site onde este editor e
 3. **Copie e cole este pedido** na conversa e envie:
 
    ```
-   Instale o editor de vídeo seguindo o INSTALAR.md deste link: https://github.com/eupedromaciel/editor-de-video
+   Instale o editor de vídeo seguindo o INSTALAR.md deste link: https://github.com/novosdonos/editor-de-video
    ```
 
    O Claude baixa o editor, confere o seu Mac e instala o que falta. Em um momento ele vai pedir para você colar **um comando no Terminal** (o app do Mac para digitar comandos) e digitar a **senha do Mac**. Ele explica cada passo.

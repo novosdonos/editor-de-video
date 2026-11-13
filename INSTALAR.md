@@ -1,6 +1,6 @@
 # Instalação (instruções para o Claude)
 
-Este arquivo é lido pelo Claude quando a pessoa pede "Instale o editor de vídeo seguindo o INSTALAR.md deste link". Se você está lendo pelo navegador (antes de baixar), siga a partir do passo 0 e baixe no passo 1; o link direto deste arquivo é https://raw.githubusercontent.com/eupedromaciel/editor-de-video/main/INSTALAR.md. A pessoa provavelmente **não é técnica**: não sabe o que é Terminal, Homebrew, git ou Python. Fale com ela em português simples, um passo por vez, dizendo o que vai acontecer e por quê, sem jargão sem tradução. Não peça que ela digite nada além do que está descrito aqui.
+Este arquivo é lido pelo Claude quando a pessoa pede "Instale o editor de vídeo seguindo o INSTALAR.md deste link". Se você está lendo pelo navegador (antes de baixar), siga a partir do passo 0 e baixe no passo 1; o link direto deste arquivo é https://raw.githubusercontent.com/novosdonos/editor-de-video/main/INSTALAR.md. A pessoa provavelmente **não é técnica**: não sabe o que é Terminal, Homebrew, git ou Python. Fale com ela em português simples, um passo por vez, dizendo o que vai acontecer e por quê, sem jargão sem tradução. Não peça que ela digite nada além do que está descrito aqui.
 
 ## 0. Antes de baixar
 
@@ -11,9 +11,9 @@ Este arquivo é lido pelo Claude quando a pessoa pede "Instale o editor de víde
 
 ## 1. Baixar
 
-- Se `xcode-select -p` funcionar (git disponível): `git clone https://github.com/eupedromaciel/editor-de-video.git`
+- Se `xcode-select -p` funcionar (git disponível): `git clone https://github.com/novosdonos/editor-de-video.git`
 - Se não: baixe o ZIP, sem precisar de git:
-  `curl -L -o editor-de-video.zip https://github.com/eupedromaciel/editor-de-video/archive/refs/heads/main.zip && unzip -q editor-de-video.zip && mv editor-de-video-main editor-de-video && rm editor-de-video.zip`
+  `curl -L -o editor-de-video.zip https://github.com/novosdonos/editor-de-video/archive/refs/heads/main.zip && unzip -q editor-de-video.zip && mv editor-de-video-main editor-de-video && rm editor-de-video.zip`
   (não use `git` antes do Homebrew: num Mac novo ele abre uma janela pedindo as ferramentas de desenvolvedor da Apple; o Homebrew instala essas ferramentas no passo 2.)
 
 Entre na pasta: `cd editor-de-video`. A partir daqui, todo comando roda dentro dela.

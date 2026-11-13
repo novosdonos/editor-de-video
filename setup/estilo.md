@@ -42,6 +42,7 @@ Valores também em `remotion/src/marca.ts` (os dois sempre iguais).
 - `cheia`: câmera em tela cheia, motion por cima, sem cobrir o rosto; degradê no pé da imagem.
 - `reduzida`: câmera num painel à direita, motion à esquerda. Cena de até ~15 s: câmera ~40% (cantos 36 px), sem sobrepor. Framework longo (mais de ~15 s): câmera ~28% num card que sobrepõe a borda do framework.
 - `dividida` e `motion`: ver `elementos.md`.
+- **Alinhamento das telas lado a lado** (2026-11-13: tela e câmera desalinhadas numa aula). Porquê: blocos lado a lado com topos e bases diferentes parecem erro, não intenção. Base: tela e câmera com o mesmo topo e a mesma base, o conjunto centrado na vertical; margens laterais iguais (ex.: 60 px dos dois lados); respiro fixo entre os blocos (ex.: 24 px); o rótulo da trilha no topo das telas. Desalinhar só quando é intenção visível (card que sobrepõe a borda de propósito), nunca por sobra de medida.
 
 
 ### 3.1 Vertical / reels (aprendizado dos cortes de 2026-11-12)
@@ -75,6 +76,8 @@ Repertório, não regra fixa (§13): o briefing escolhe. Quando o reels sai do f
 - Mesma luz e sombra por nível em todas as cenas.
 - Animar só transform, opacity e clip-path.
 - **Tirar um acessório**: antes de fechar a cena, cortar um elemento decorativo que não muda o entendimento (2026-11-12, ref. skill frontend-design).
+- **Movimento vivo depois da entrada** (2026-11-13, ref. site de plataforma de vendas). Porquê: em tela que fica mais de ~2 s, o que congela parece imagem colada; uma deriva pequena (flutuar 3–6 px em 5–7 s, anel de pulso, linha pontilhada correndo) mantém a cena viva sem pedir atenção. Serve a satélites: cards de apoio, pinos, ícones, chips. Não serve ao foco que está sendo lido (texto longo, número contando, notificação), que fica parado para ler, nem a cena que pede peso e silêncio (frase de impacto, fecho), onde o parado é a intenção. Conviver com "um foco por vez": se o movimento compete com a fala, a amplitude está grande demais. `flutua` em `movimento.ts`.
+- **Duas curvas de entrada, escolhidas pelo papel** (2026-11-13). `eo` (cúbica) chega com freio no fim e marca tempo: batida de fala, palavra em destaque, contador junto da voz. `eox` (expo-out, ~0,55 s) chega quase inteira no primeiro terço e passa o resto assentando: card ou objeto que entra e fica (notificação, card de venda, janela), com sensação leve e cara. Na dúvida, perguntar: isto marca um tempo da fala ou só precisa estar lá? Marca tempo → `eo`; precisa estar lá → `eox`.
 - Todas as curvas e durações vêm de `remotion/src/movimento.ts`; nenhum componente define curva própria.
 
 ## 6. Corte e ritmo [Base]

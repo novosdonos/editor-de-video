@@ -147,7 +147,7 @@ Abra o app do Claude na pasta **Documentos** (não dentro do editor) e envie:
 ```
 Tenho o editor de vídeo instalado em Documentos/editor-de-video.
 1. Renomeie essa pasta para editor-de-video-antigo.
-2. Instale a versão nova seguindo o INSTALAR.md de https://github.com/eupedromaciel/editor-de-video
+2. Instale a versão nova seguindo o INSTALAR.md de https://github.com/novosdonos/editor-de-video
 3. Traga da antiga para a nova tudo o que é meu: setup/ (perfil, vocabulário, referências, fontes, biblioteca),
    videos/ inteira, remotion/src/marca.ts (minha marca), remotion/src/aulas/, remotion/src/registro/
    e os componentes que não existem na versão nova.

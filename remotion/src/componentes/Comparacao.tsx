@@ -598,8 +598,8 @@ export type NutriProgramaProps = {
   professora: string; // vídeo (b-roll) da aula
 };
 
-const S = { x: 404, y: 84, w: 940, h: 830 };
-const CAM = { x: 1352, y: 140, w: 528, h: 800 };
+const S = { x: 376, y: 125, w: 940, h: 830 }; // tela principal; topo e base iguais aos da câmera, centradas na vertical
+const CAM = { x: 1340, y: 125, w: 520, h: 830 }; // câmera ~27%; margem de 60 px à direita (igual à esquerda), 24 px da tela
 
 const CameraCard: React.FC<{ camera: Camera; dur: number }> = ({ camera, dur }) => {
   const t = useT();
@@ -620,7 +620,7 @@ const CameraCard: React.FC<{ camera: Camera; dur: number }> = ({ camera, dur }) 
   );
 };
 
-const TR = { x: 92, y0: 300, passo: 150 };
+const TR = { x: 92, y0: 260, passo: 150 }; // 1ª etapa logo abaixo do rótulo (alinhado ao topo das telas)
 const Trilha: React.FC<{ t: number; inicios: number[]; etapas: { nome: string; icone: React.ReactNode }[] }> = ({ t, inicios, etapas }) => {
   const k = eo(seg(t, 0.1, 0.8));
   let prog = 0;
@@ -630,7 +630,7 @@ const Trilha: React.FC<{ t: number; inicios: number[]; etapas: { nome: string; i
   const n = etapas.length - 1;
   return (
     <div style={{ position: "absolute", left: 0, top: 0, opacity: k, translate: `${lerp(-16, 0, k).toFixed(1)}px 0px` }}>
-      <p className="nd-rotulo" style={{ position: "absolute", left: TR.x - 32, top: 168, fontSize: 28, color: "#575E6B", whiteSpace: "nowrap" }}>O programa</p>
+      <p className="nd-rotulo" style={{ position: "absolute", left: TR.x - 32, top: S.y + 4, fontSize: 28, color: "#575E6B", whiteSpace: "nowrap" }}>O programa</p>
       <div style={{ position: "absolute", left: TR.x - 1.5, top: TR.y0, width: 3, height: TR.passo * n, borderRadius: 2, background: "#D5D8DE" }} />
       <div style={{ position: "absolute", left: TR.x - 1.5, top: TR.y0, width: 3, height: TR.passo * n, borderRadius: 2, background: "var(--ground)", scale: `1 ${(prog / n).toFixed(4)}`, transformOrigin: "50% 0" }} />
       {etapas.map((e, i) => {

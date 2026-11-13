@@ -63,8 +63,8 @@ export type InterfaceJornadaProps = {
 };
 
 // ---------- geometria (palco 1920×1080) ----------
-const S = { x: 404, y: 84, w: 940, h: 830 }; // tela principal; termina antes da câmera
-const CAM = { x: 1352, y: 140, w: 528, h: 800 }; // câmera ~28%
+const S = { x: 376, y: 125, w: 940, h: 830 }; // tela principal; topo e base iguais aos da câmera, centradas na vertical
+const CAM = { x: 1340, y: 125, w: 520, h: 830 }; // câmera ~27%; margem de 60 px à direita (igual à esquerda), 24 px da tela
 const BARRA = 100; // barra do navegador
 const naS = (x: number, y: number): [number, number] => [S.x + x, S.y + y];
 
@@ -300,7 +300,7 @@ const Trilha: React.FC<{ t: number; inicios: number[] }> = ({ t, inicios }) => {
   });
   return (
     <div style={{ position: "absolute", left: 0, top: 0, opacity: k, translate: `${lerp(-16, 0, k).toFixed(1)}px 0px` }}>
-      <p className="nd-rotulo" style={{ position: "absolute", left: TR.x - 32, top: 132, fontSize: 22, color: "#575E6B", whiteSpace: "nowrap" }}>Jornada de compra</p>
+      <p className="nd-rotulo" style={{ position: "absolute", left: TR.x - 32, top: S.y + 4, fontSize: 22, color: "#575E6B", whiteSpace: "nowrap" }}>Jornada de compra</p>
       <div style={{ position: "absolute", left: TR.x - 1.5, top: TR.y0, width: 3, height: TR.passo * 5, borderRadius: 2, background: "#D5D8DE" }} />
       <div style={{ position: "absolute", left: TR.x - 1.5, top: TR.y0, width: 3, height: TR.passo * 5, borderRadius: 2, background: "var(--ground)", scale: `1 ${(prog / 5).toFixed(4)}`, transformOrigin: "50% 0" }} />
       {ETAPAS.map((e, i) => {
