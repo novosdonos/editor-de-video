@@ -1,0 +1,32 @@
+# Ambiente (cada máquina instala o seu)
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+
+# Vídeos: video.md e as decisões (edicao/transcricao.json, qualidade.json) são versionados; o pesado fica fora
+videos/*/brutos/
+videos/*/previas/
+videos/*/final/
+videos/*/edicao/*.mp4
+videos/*/edicao/*.wav
+videos/*/edicao/*.tmp
+videos/*/edicao/*.trava
+
+# Fontes do autor: o que chega em entrada/ ainda não foi conferido (pode ter dado de cliente)
+setup/fontes/entrada/*
+!setup/fontes/entrada/.gitkeep
+
+# Downloads de referência para estudo (nunca entram no render)
+setup/referencias/entrada/*
+!setup/referencias/entrada/.gitkeep
+
+# Referências e biblioteca podem ficar grandes; versione se quiser (apague estas linhas)
+setup/referencias/*/*.mp4
+setup/referencias/*/*.mov
+setup/biblioteca/b-roll/*.mp4
+setup/biblioteca/b-roll/*.mov
+
+# Chaves de API (cada máquina tem as suas)
+.env

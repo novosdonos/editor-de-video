@@ -1,0 +1,21 @@
+/* Estilos comuns do catálogo. Variáveis definidas no <Palco> (comum.tsx) a partir de marca.ts. */
+.nd-palco { color: var(--second); font-family: var(--sans); }
+.nd-palco p, .nd-palco h2, .nd-palco h4 { margin: 0; }
+.nd-fundo { position: absolute; inset: 0; background: var(--ground); }
+.nd-papel { position: absolute; inset: 0; background: var(--second); }
+.nd-papel-pontos { position: absolute; inset: 0; background-image: radial-gradient(color-mix(in srgb, var(--ground) 14%, transparent) 1.6px, transparent 1.8px); background-size: 36px 36px; }
+.nd-palavras { position: absolute; display: flex; flex-direction: column; gap: 20px; }
+.nd-linha { font-size: 76px; line-height: 1.0; font-weight: 600; letter-spacing: -0.025em; }
+.nd-rotulo { font-family: var(--mono); font-size: 24px; letter-spacing: .12em; text-transform: uppercase; }
+.nd-mao { font-family: var(--hand); font-weight: 700; color: var(--accent); white-space: nowrap; text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+.nd-mao.tinta { color: var(--ground); text-shadow: none; }
+.nd-mao u { text-decoration: none; background: linear-gradient(var(--main), var(--main)) 0 92% / 100% 6px no-repeat; padding-bottom: 4px; }
+.nd-arte { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.nd-camfade { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: linear-gradient(transparent, color-mix(in srgb, var(--ground) 92%, transparent)); }
+.nd-campainel { position: absolute; left: 1176px; top: 28px; width: 716px; height: 1024px; border-radius: 36px; overflow: hidden; background: var(--raised); box-shadow: 0 14px 36px rgba(25,28,35,.16); }
+.nd-camtag { position: absolute; left: 28px; top: 24px; padding: 10px 16px; border-radius: 999px; font-size: 18px; color: var(--second); background: color-mix(in srgb, var(--ground) 40%, transparent); backdrop-filter: blur(14px); }
+.nd-glass { position: absolute; border-radius: 32px; color: var(--accent); background: color-mix(in srgb, var(--ground) 42%, transparent); backdrop-filter: blur(26px) saturate(1.25); border: 1.5px solid color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: 0 30px 60px rgba(0,0,0,.30), inset 0 1px 0 color-mix(in srgb, var(--accent) 30%, transparent); }
+.nd-card { position: absolute; border-radius: 30px; color: var(--ground); background: var(--accent); box-shadow: 0 24px 60px rgba(25,28,35,.12), 0 2px 6px rgba(25,28,35,.06); }
+.nd-num { font-variant-numeric: tabular-nums; }
+.nd-cursor { position: absolute; left: 0; top: 0; width: 44px; height: 52px; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); transform-origin: 6px 6px; }
+.nd-ripple { position: absolute; border-radius: 50%; border: 4px solid var(--main); }
