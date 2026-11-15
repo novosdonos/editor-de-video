@@ -30,7 +30,8 @@ export type AulaProps = {
   camera?: DadosCamera;
   sfx?: DadosSfx;
   // public/<aula>/remapa.json: [tempo velho, tempo novo] por palavra, quando o editado foi refeito depois do motion
-  remapa?: Pares;
+  remapa?: Pares;  // só o vídeo com a câmera, sem cenas nem destaques: o 13 compara com o quadro completo para achar onde o motion cai
+  semMotion?: boolean;
 };
 
 export const calcularAula: CalculateMetadataFunction<AulaProps> = async ({
@@ -57,7 +58,7 @@ export const calcularAula: CalculateMetadataFunction<AulaProps> = async ({
   };
 };
 
-export const Aula: React.FC<AulaProps> = ({ aula, mostrarLegendas, legendas, camera, sfx, remapa }) => {
+export const Aula: React.FC<AulaProps> = ({ aula, mostrarLegendas, legendas, camera, sfx, remapa, semMotion }) => {
   const { fps } = useVideoConfig();
   const novo = (t: number) => mapear(remapa, t, 0, 1);
   const novoParaVelho = (t: number) => mapear(remapa, t, 1, 0);
@@ -71,7 +72,7 @@ export const Aula: React.FC<AulaProps> = ({ aula, mostrarLegendas, legendas, cam
         />
       </Camera>
       <Sons dados={sfx} />
-      {(linhas[aula] ?? []).map((item) => {
+      {(semMotion ? [] : (linhas[aula] ?? [])).map((item) => {
         // com remapa, a cena vai para o tempo novo e recebe o tempo velho por dentro (useT / useInicioCamera)
         const inicio = novo(item.inicio);
         const fim = novo(item.inicio + item.dur);

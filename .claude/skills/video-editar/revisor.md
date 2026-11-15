@@ -12,7 +12,7 @@ O checklist confere **o resultado na tela**, não cota: número citado aqui é a
 - [ ] **Zonas seguras** de cada plataforma (`plataformas.md` §2): legenda, textos e CTA dentro da área livre.
 - [ ] **Sincronia**: cada cena entra na palavra em que está ancorada; legenda acompanha a fala.
 - [ ] **Sobreposição**: motion não cobre o rosto; zoom não acontece durante motion que cobre a tela nem no layout `reduzida`.
-- [ ] **Rosto livre no vídeo montado**: `node scripts/quadros.mjs <aula> <pasta>` (aula com a câmera do 09) e conferir cada quadro; o motion fica fora do zoom da câmera, então destaque que parece certo isolado pode atravessar o rosto quando ela fecha. Texto nunca no peito no horizontal (no `Reels` dividido, a palavra-chave no peito é a regra do layout).
+- [ ] **Conferência automática sem falha**: `codigos/13_conferir_motion.py videos/<slug>` (rosto livre em cada plano da câmera, faixa do player, frase longa ou esticada, colisões). Falha só passa se estiver em `liberados` com o motivo da Direção. Os avisos (`perto`, `parado`) foram olhados um a um em `previas/conferencia.jpg`. Texto nunca no peito no horizontal (no `Reels` dividido, a palavra-chave no peito é a regra do layout).
 - [ ] **Pendências**: nenhuma linha "A refazer" ou pedido sem "Feito" em "Correções" do `video.md`.
 - [ ] **Legenda**: `mostrarLegendas` do render igual ao campo `legenda` do `video.md` (palavras-chave = sem legenda corrida; ela cobre os destaques de baixo).
 - [ ] **Câmera e som**: seções `enquadramento` e `sfx` existem e valem para os cortes atuais (o 08 avisa); render curto de um trecho com destaque e uma volta de cena: rosto não encosta no texto, nenhuma borda preta, SFX abaixo da voz.
