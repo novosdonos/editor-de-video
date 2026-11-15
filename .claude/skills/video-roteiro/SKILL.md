@@ -5,7 +5,7 @@ description: Cria a pasta de um vídeo novo e o video.md completo (briefing, pes
 
 # /video-roteiro
 
-Do "quero gravar" ao `videos/<nn-slug>/video.md` aprovado (A1). Leia antes: `CLAUDE.md`, `.claude/skills/video-editar/direcao.md` (como decidir), `setup/perfil.md`, `setup/estilo.md` (base, não lei), `setup/elementos.md`, `setup/plataformas.md`.
+Do "quero gravar" ao `videos/<nn-slug>/video.md` aprovado (A1). Leia antes: `CLAUDE.md`, `.claude/skills/video-editar/direcao.md` (como decidir), `setup/perfil.md`, `setup/plataformas.md` §1 e, do `setup/estilo.md` (base, não lei; arquivo longo), só §1, §3 e §13. `setup/elementos.md` quando for montar o plano de cenas.
 
 ## 0. Pré-requisitos
 
@@ -43,7 +43,7 @@ Antes do roteiro, preencha a seção "Direção" do `video.md` seguindo `direcao
 
 ## 4. Plano de cenas (preliminar)
 
-Uma linha por cena: tipo (`elementos.md`), **raciocínio da fala e formato** (3 opções de famílias diferentes do `estilo.md` §13; registrar a escolhida e o porquê), **por que serve à direção**, conteúdo, layout (`estilo.md` §3), tópico do roteiro, **momento-chave** e material real necessário (b-roll, `arquivo`, foto).
+Curto, uma linha por cena prevista: tópico do roteiro, o que a fala faz ali (narra, prova, compara, nega…), a ideia de cena com o porquê de servir à direção, e o **material real** que ela pede (b-roll, `arquivo`, foto, gravação de tela). Serve para saber o que gravar e pesquisar antes; o formato de cada cena se decide no mapa de motion da `/video-editar` (A3), sobre a fala real.
 - Plataforma/produto citado → proponha cena `tela` e pergunte "já tem gravada?"; registre a fonte (gravação do autor, biblioteca, automática, assistida).
 - Pessoa, evento, marca ou conteúdo de terceiros citado → proponha cena `arquivo` e avise que dá para buscar o material (YouTube, redes, fontes abertas; fluxo em `elementos.md` §5). O autor decide o que usar.
 - Prefira componentes e assets que já existem na biblioteca.

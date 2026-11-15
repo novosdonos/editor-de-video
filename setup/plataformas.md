@@ -8,14 +8,14 @@ Um vídeo tem um formato e uma ou mais plataformas; a edição gera um arquivo e
 
 ## 1. Formatos
 
-| Formato | Duração | Proporção | Estrutura | Ritmo |
+| Formato | Duração | Proporção | Estrutura | Ritmo (ponto de partida) |
 |---|---|---|---|---|
-| `reels` | 30–90 s (ideal até 60 s) | 9:16 | Gancho (0–3 s) → desenvolvimento → CTA | Corte ou mudança visual a cada 2–4 s; legenda sempre; sem respiro |
+| `reels` | 30–90 s (ideal até 60 s) | 9:16 | Gancho (0–3 s) → desenvolvimento → CTA | Corte ou mudança visual a cada 2–4 s; texto na tela sempre (palavras-chave ou legenda, `perfil.md` §6); sem respiro |
 | `youtube` | 8–20 min | 16:9 | Gancho (0–30 s) → promessa → capítulos → CTA no meio e no fim | Mudança visual a cada 5–10 s; título por capítulo |
 | `aula` | 5–30 min | 16:9 | Objetivo → conteúdo em seções → resumo → tarefa | Mudança visual a cada 10–20 s; motion para estruturar, não para enfeitar |
 | `criativo` | 15–60 s | 9:16 (e 1:1 / 4:5 se pedido) | Gancho → problema → prova → oferta → CTA | Igual a reels, gancho ainda mais curto (0–2 s); gera matriz de variações |
 
-O ritmo é o ponto de partida; o `estilo.md` do autor ajusta.
+O ritmo é exemplo de partida, não meta: a Direção de cada vídeo define quanto a imagem muda (`.claude/skills/video-editar/direcao.md`), sobre a base do `estilo.md`.
 
 ---
 
@@ -44,7 +44,7 @@ Regras para vertical:
 | Plataforma | Áreas a evitar | Áudio | Observações |
 |---|---|---|---|
 | `youtube` | Faixa inferior de ~120 px (controles do player); últimos 5–20 s no canto direito se usar tela final | -14 LUFS | Capítulos a partir dos títulos de seção (primeiro em 00:00) |
-| `aula` (área de membros) | Faixa inferior de ~120 px (controles do player) | -16 LUFS | Legenda opcional (definida no `estilo.md`); sem tela final |
+| `aula` (área de membros) | Faixa inferior de ~120 px (controles do player) | -16 LUFS | Legenda conforme `perfil.md` §6; sem tela final |
 
 Regras para horizontal:
 - **Margem de título**: 5% de cada lado (96 px em 1080p).

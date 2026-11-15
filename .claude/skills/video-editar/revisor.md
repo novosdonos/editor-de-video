@@ -1,6 +1,8 @@
 # Checklist do revisor
 
-Rodado por um subagent revisor antes da A5-final. Até 2 rodadas; cada falha volta só para a cena/trecho que falhou. O que sobrar vai para a lista de exceções da A5.
+Rodado por um subagent revisor: os itens da etapa antes de toda amostra que vai ao autor, e o checklist inteiro, com o vídeo montado do começo ao fim, antes da A5-final. Cada falha volta só para a cena/trecho que falhou. Falha que continua depois de duas tentativas de ajuste é sinal de conceito errado: repensar a cena (ou levar a dúvida ao autor) em vez de remendar de novo. Nada vai para a A5 como "exceção" sem o autor saber o que é e por quê.
+
+O checklist confere **o resultado na tela**, não cota: número citado aqui é a base do `estilo.md`; se a Direção do vídeo definiu outro, vale o da Direção.
 
 ## Técnico
 
@@ -18,7 +20,7 @@ Rodado por um subagent revisor antes da A5-final. Até 2 rodadas; cada falha vol
 - [ ] **Movimento** (`estilo.md` §5, salvo quebra anotada na Direção): sem parada seca, sem entrada simultânea de filhos, texto na tela ≥ 0,3 s por palavra (automatizar com `checar-curvas.ts` quando existir).
 - [ ] **Leitura**: texto de leitura ≥ 28 px em 1080 de altura; contraste suficiente (exceto elementos apagados de propósito no foco).
 - [ ] **Áudio**: volume alvo da plataforma; SFX só em evento visual, nunca no acento forte da música, nunca cobrindo palavra; nenhuma emenda com fade até zero.
-- [ ] **Cor** aplicada (o 06 re-renderizado apaga a cor enquanto o 05 não existir).
+- [ ] **Cor** aplicada no render (seção `cor`; o 08 avisa se ela mudou depois do render).
 - [ ] **Arquivo de terceiros**: fonte (link, canal, trecho) anotada no `video.md`; nenhuma fala ou imagem editada para parecer o que não foi.
 - [ ] **Dado sensível**: nenhum nome de cliente, e-mail, CPF, telefone ou localização em provas e telas.
 
@@ -30,11 +32,11 @@ Rodado por um subagent revisor antes da A5-final. Até 2 rodadas; cada falha vol
 
 ## Variedade (`estilo.md` §13)
 
-- [ ] Tabela da linha do tempo com o formato de cada item, conferida contra a base de repetição do §13 (contêiner, tela dividida, texto puro) ou a que a Direção definiu.
-- [ ] Trocas de ambiente (imagem real em tela cheia) na frequência da Direção (base: pelo menos 1 a cada ~3 min de aula).
+- [ ] Olhando a linha do tempo inteira (o formato de cada item, em sequência): algum contêiner, layout ou forma se repete sem motivo, a ponto de o vídeo parecer modelo pronto? Repetição com motivo (mesmo raciocínio, formato do vídeo inteiro) não é falha.
+- [ ] Trocas de ambiente (imagem real em tela cheia) onde a Direção pediu.
 - [ ] Nenhuma cena com raciocínio diferente reaproveitando a estrutura de outra.
-- [ ] Nenhum elemento parado na tela por mais de ~2 s esperando a próxima fala.
-- [ ] Frases de destaque: síntese de 2–5 palavras, entrando junta; formas alternadas (nunca a mesma em seguida).
+- [ ] Nenhum elemento esquecido na tela esperando a próxima fala (base ~2 s; parado de propósito, para ler ou dar peso, não é falha).
+- [ ] Frases de destaque: síntese curta (base 2–5 palavras), não transcrição, entrando junta; formas alternadas (a mesma em seguida pede motivo).
 - [ ] **Fluidez da câmera** (`estilo.md` §6): nenhum zoom que vai e volta (plano < 2,5 s fora de corte), nenhuma aproximação lenta ou zoom dentro de cena que desfaz no fim, nenhum reenquadramento pequeno sem motivo.
 
 ## Diretor (só pelo que aparece na tela)
