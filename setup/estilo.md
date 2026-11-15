@@ -1,6 +1,6 @@
 # Estilo
 
-O design system de edição do autor: **base, não lei**. Lido pela `/video-roteiro` e pela `/video-editar` depois da seção "Direção" do `video.md` do vídeo. Como decidir: `.claude/skills/video-editar/direcao.md`.
+O design system de edição do autor: **base, não lei**. Lido pela `/video-roteiro` e pela `/video-editar` depois da seção "Direção" do `video.md` do vídeo. Como decidir: `.claude/skills/video-editar/direcao.md`. Arquivo longo: cada skill lista as seções da etapa; não precisa ser lido inteiro.
 
 ## Como ler
 
@@ -74,7 +74,6 @@ Repertório, não regra fixa (§13): o briefing escolhe. Quando o reels sai do f
 - **Um momento-chave por cena** (entra 10–20% maior e assenta); o resto quieto.
 - Texto na tela por pelo menos ~0,3 s por palavra.
 - Mesma luz e sombra por nível em todas as cenas.
-- Animar só transform, opacity e clip-path.
 - **Tirar um acessório**: antes de fechar a cena, cortar um elemento decorativo que não muda o entendimento (2026-11-12, ref. skill frontend-design).
 - **Movimento vivo depois da entrada** (2026-11-13, ref. site de plataforma de vendas). Porquê: em tela que fica mais de ~2 s, o que congela parece imagem colada; uma deriva pequena (flutuar 3–6 px em 5–7 s, anel de pulso, linha pontilhada correndo) mantém a cena viva sem pedir atenção. Serve a satélites: cards de apoio, pinos, ícones, chips. Não serve ao foco que está sendo lido (texto longo, número contando, notificação), que fica parado para ler, nem a cena que pede peso e silêncio (frase de impacto, fecho), onde o parado é a intenção. Conviver com "um foco por vez": se o movimento compete com a fala, a amplitude está grande demais. `flutua` em `movimento.ts`.
 - **Duas curvas de entrada, escolhidas pelo papel** (2026-11-13). `eo` (cúbica) chega com freio no fim e marca tempo: batida de fala, palavra em destaque, contador junto da voz. `eox` (expo-out, ~0,55 s) chega quase inteira no primeiro terço e passa o resto assentando: card ou objeto que entra e fica (notificação, card de venda, janela), com sensação leve e cara. Na dúvida, perguntar: isto marca um tempo da fala ou só precisa estar lá? Marca tempo → `eo`; precisa estar lá → `eox`.
@@ -87,14 +86,14 @@ Repertório, não regra fixa (§13): o briefing escolhe. Quando o reels sai do f
 - Gagueira = palavra curta de baixa confiança isolada: cortar.
 - Regravação pode começar com palavras diferentes e repetir só o fim: a mesma ideia nunca aparece duas vezes seguidas. Comparar o fim das frases, não só o início. Conferir a lista de trechos repetidos do 03.
 - Paralelismo retórico intencional fica, desde que as duas frases digam o que o autor quis dizer; na dúvida, perguntar (fala invertida passa despercebida como paralelismo).
-- Ritmo do 06: pausa como se ouve = volume 13 dB abaixo do nível da fala e sem consoante (`--queda-pausa 13`; a cauda da voz depois da frase soa como pausa e sai com fade; respiração não é consoante); vogal arrastada (som parado > 0,14 s) fica com 0,10 s; última sílaba antes de pausa não se estica ("s" final até 0,08 s; vogal final até 0,14 s tirando o miolo, nunca o decaimento, que sem ele a fala fica seca): soa como espera e mostra a expressão de quem vai continuar (2026-11-12, 01); pausa dentro da frase a partir de 0,15 s perde o meio; respiro de 0,08 depois de fim de frase, 0,05 no meio da frase e 0,05 antes da fala; trecho mínimo 0,4, pausa máxima 0,2; velocidade 1,1× (teto 1,15×). Ajustar ao gosto do autor no vídeo-piloto.
+- Ritmo do 06: pausa como se ouve = volume 13 dB abaixo do nível da fala e sem consoante (`--queda-pausa 13`; a cauda da voz depois da frase soa como pausa e sai com fade; respiração não é consoante); vogal arrastada (som parado > 0,14 s) fica com 0,10 s; última sílaba antes de pausa não se estica ("s" final até 0,08 s; vogal final até 0,14 s tirando o miolo, nunca o decaimento, que sem ele a fala fica seca): soa como espera e mostra a expressão de quem vai continuar (2026-11-12, 01); pausa dentro da frase a partir de 0,15 s perde o meio; respiro de 0,08 depois de fim de frase, 0,05 no meio da frase e 0,05 antes da fala; trecho mínimo 0,4, **Pausa máxima e velocidade não têm número fixo**: o vídeo fica o mais dinâmico que aguenta sem engolir palavra nem soar acelerado. Ponto de partida do 06: pausa máxima 0,3 e 1,1×. Apertar a partir daí e conferir na amostra, ouvindo fim de palavra e de frase (o 06 avisa quando palavra mantida perde pedaço); onde comer sílaba ou a fala perder o sentido, afrouxar. Ajustar ao gosto do autor no vídeo-piloto.
 - Ritmo nunca às custas da imagem: só erro e pausa a partir de 0,35 s viram corte (salto); pausa mais curta e vogal arrastada viram trecho acelerado na imagem, sem salto. Corte dentro de palavra trava o vídeo (2026-11-13, 01).
 - Frase de destaque é síntese objetiva, não transcrição ("Errar aqui custa caro."); raciocínio construído em etapas ("primeiro isso, depois aquilo… e agora?") ganha animação que acompanha cada etapa (2026-11-13, 01).
 - Áudio: o tratamento não pode subir "s", "x", "f" e respiração acima do original (soa como ruído de fundo); de-esser forte depois do compressor (2026-11-13, 01).
 - Dado de apoio ao lado do rosto fica na altura dos olhos (como uma lista de itens curtos), nunca no topo do quadro; número conta contínuo e notificação entra em feed, com a cena começando antes da 1ª batida (2026-11-13, 01).
 - Câmera: troca de plano só em corte com salto do rosto (no mínimo 4 s depois da anterior) e em destaque; escada a cada ~6 s; sem desfoque na volta de cena (2026-11-13, 01).
 - Nunca confiar nos tempos de palavra do Parakeet para cortar: erram até 0,25 s. Toda borda de corte vai para a emenda real medida no áudio, e o "aparar" só se usa em arrasto que aparece no volume.
-- Amostra para o autor: `06 --amostra INI-FIM,... -o previas/<nome>.mp4`, janelas começando e terminando em fim de frase; conferir retranscrevendo antes de mandar.
+- Amostra para o autor: `06 --amostra INI-FIM,...` (grava sempre `previas/amostra-cortes.mp4`), janelas começando e terminando em fim de frase; conferir retranscrevendo antes de mandar.
 - Emendas com crossfade de 20 ms; nunca fade até zero (o ruído de fundo some e soa como picote).
 - Zoom e reenquadramento: ver §6.1 (etapa própria, depois do motion aprovado).
 - Conteúdo que sai mesmo bem falado: ver §6.2.
@@ -109,9 +108,9 @@ Repertório, não regra fixa (§13): o briefing escolhe. Quando o reels sai do f
 - **Caso medido** (referência de câmera dinâmica, YuNet): troca de plano a cada ~1,5 s em média (0,8–3 s), inclusive no meio de um take, os três planos em partes parecidas; câmera visível ~70% do tempo, tela só de motion ~30%. É exemplo de energia, não meta.
 - **Escada**: fechar aos poucos ao longo de um raciocínio (aberto → médio → fechado) e voltar para o aberto num salto seco quando o assunto muda ou ao voltar de uma tela de motion. Pingue-pongue fechado → aberto → fechado não tem sentido para o olho.
 - **Troca seca** (punch-in no corte ou na entrada de destaque). Aproximação/afastamento lento (~1 s, 6–10%) fica fora da base (zoom que vai e volta); **muda quando** a Direção pede tensão numa frase e o teste de 1 min no bruto mostra que não treme.
-- **Ênfase = fechado**: frase forte, número ou pergunta direta pedem o plano fechado; quando um elemento entra, a câmera fecha no mesmo frame (o zoom acompanha a animação).
+- **Ênfase = fechado**: frase forte, número ou pergunta direta pedem o plano fechado; quando um **destaque** entra, a câmera fecha no mesmo frame (o zoom acompanha a animação). Em **cena**, a câmera fica aberta e parada (Fluidez).
 - **Card lateral sem dividir a tela**: quando um card entra de um lado sobre a câmera cheia, o rosto vai para o terço oposto (centro do rosto em x ≈ 25% ou 75%) no mesmo frame, junto com um fechamento e 3–4 frames de desfoque de movimento. Bom para cenas curtas (até ~8 s); `reduzida` serve melhor a frameworks longos.
-- **Câmera → motion**: a câmera não some, vira elemento. Afasta devagar (~0,5 s), ganha borda e cantos arredondados, encolhe para um card sobre o fundo e pode virar o próprio assunto (vertical de reels, miniatura, player) antes de dar lugar à tela de motion.
+- **Câmera → motion** (repertório, quando a Direção pede; a base é a câmera aberta e parada até a cena entrar): a câmera não some, vira elemento. Afasta devagar (~0,5 s), ganha borda e cantos arredondados, encolhe para um card sobre o fundo e pode virar o próprio assunto (vertical de reels, miniatura, player) antes de dar lugar à tela de motion.
 - **Motion → câmera**: base é voltar seco no plano aberto, sem desfoque, e fechar a partir dali. **Muda quando** a Direção pede transição marcada: whip (desfoque horizontal de 4–6 frames) ou desfoque de foco que resolve em ~0,3 s.
 - [Identidade] Nunca mexer o enquadramento no layout `reduzida` nem durante motion que cobre a tela; o rosto nunca fica atrás de card (`plataformas.md` §2).
 - Ordem: o gancho de câmera de cada cena é decidido no mapa de motion (A3) e executado depois do motion aprovado (etapa 7 da `/video-editar`), porque o zoom acompanha a animação.
@@ -221,7 +220,7 @@ Padrão inicial: nunca um formato único. Ler o que a fala **faz** e escolher o 
 - A síntese entra junta (palavras a ~0,08 s) na palavra-chave, nunca esticada pela fala inteira. Raciocínio em etapas ganha animação com uma batida por etapa (um item por vez, o anterior sai), não lista parada.
 - Frase alterna a forma ao longo do vídeo, nunca a mesma em seguida: bloco no terço livre (esquerda ou parede à direita), palavras empilhadas grandes, linha embaixo com câmera aberta, palavra-chave à mão. A troca com risco ("Eu ~~sou~~ estou") fica numa linha só, embaixo, com a câmera aberta. Raciocínio enumerado vira lista que acumula na tela (quem ouve não esquece o item anterior); a frase de maior impacto (fecho) ganha peça própria: imagem escurece, palavras grandes em batida e um som de impacto.
 - Enumeração de coisas diferentes ganha um ícone **por item**, que represente aquele item (pós-doutorado ≠ MBA ≠ certificado), nunca a mesma pílula repetida.
-- Nada fica parado na tela esperando a próxima fala: se há mais de ~2 s sem batida, o elemento sai ou a cena muda de forma.
+- Nada fica parado na tela esperando a próxima fala: se há mais de ~2 s sem batida, o elemento sai ou a cena muda de forma (parado para ler ou para dar peso é intenção, §5).
 
 ## 13. Repertório e variedade [Base + Repertório]
 
@@ -229,17 +228,16 @@ Padrão inicial, aprendido em revisão real: repetir o mesmo bloco de vidro, tex
 
 **Formatos são repertório, nunca regra.** Todo formato aprovado (react em tela dividida, vidro, palavra atrás da cabeça, P&B na voz do outro…) é mais uma opção, não obrigação nem exclusividade de uma plataforma: reels pode sair sem tela dividida, aula pode usar react. Para cada vídeo, a direção criativa (`perfil.md` §10 + briefing do `video.md`) escolhe o formato de edição que faz mais sentido; o formato do vídeo inteiro (ex.: react) não conta no orçamento de cenas abaixo. Anúncios pedem variação de formato de propósito (testar vários); reels e YouTube também testam formatos novos. Quando um formato vira padrão fixo, o vídeo fica repetitivo.
 
-**Antes de desenhar uma cena, responder por escrito no plano (`video.md`):**
+**No mapa de motion (A3), antes de desenhar uma cena, responder por escrito no `video.md`:**
 1. Qual o raciocínio da fala (narra uma jornada, compara, prova, nega, conta, enumera, imagina, provoca)?
 2. Três formatos possíveis do repertório abaixo, de famílias diferentes, e o escolhido com o porquê.
 3. O que veio antes e depois na linha do tempo (o formato não pode repetir o vizinho).
 
-**Orçamento de repetição (por vídeo):**
-- Mesmo contêiner (card de vidro, pílula, bolha) em no máximo 1 a cada 4 itens e nunca em itens seguidos.
-- Tela dividida/`reduzida` no máximo 1 a cada 5 cenas.
-- Pelo menos 1 troca de ambiente (imagem real em tela cheia: b-roll, `arquivo`, foto) a cada ~3 min de aula.
+**Repetição**: o teste é o olho, não a conta. Olhando a sequência inteira, alguma forma volta sem motivo, a ponto de o vídeo parecer modelo pronto? A Direção muda a base com motivo (ex.: na faixa viva a faixa de cima é o contêiner do vídeo inteiro).
+- Mesmo contêiner (card de vidro, pílula, bolha), tela dividida/`reduzida` ou texto puro em itens seguidos pede motivo.
+- Aula longa pede troca de ambiente (imagem real em tela cheia: b-roll, `arquivo`, foto) de tempos em tempos; a Direção diz onde.
+- O que funcionou na aula 16:9 (exemplo, não cota): mesmo contêiner em até ~1 a cada 4 itens, tela dividida em ~1 a cada 5 cenas, texto puro em ~1 a cada 3 destaques, uma troca de ambiente a cada ~3 min.
 - Uma estrutura aprovada só é reaproveitada para o **mesmo raciocínio** (jornada → jornada); raciocínio diferente pede forma diferente (comparação de ofertas ≠ jornada de compra).
-- Texto puro (frase sobre a câmera) no máximo 1 a cada 3 destaques.
 
 **Repertório por família** (escolher de famílias diferentes):
 - *Mudar o ambiente* — b-roll ou `arquivo` em tela cheia com a voz por baixo; rajada de b-roll com uma palavra gigante por plano; pessoas públicas citadas em vídeo/print real; manchetes/matérias reais em colagem; caixa de destaque sobre pessoa numa multidão.

@@ -48,7 +48,7 @@ Pastas só são criadas quando chega o primeiro arquivo. Tipo novo só entra aqu
 | `gancho` | Frase curta de impacto na tela nos primeiros segundos | Abertura de reels, criativos e YouTube | — | Referências de aberturas que prenderam a atenção dele | essencial |
 | `titulo` | Título de seção ou capítulo | Mudança de assunto, aulas e YouTube | — | Referência de título que ele goste | essencial |
 | `nome-na-tela` | Nome e credencial do autor (ou convidado) na parte de baixo da tela; no mercado, "lower third" | Primeira aparição do autor ou de convidado | `marca/` | Nome como quer ser apresentado, credencial principal | essencial |
-| `legenda` | Legenda animada palavra a palavra | Todo vídeo vertical; aulas e YouTube conforme estilo | `marca/` (tipografia) | Referência de legenda (print ou vídeo) | essencial |
+| `legenda` | Texto da fala na tela: palavras-chave (só a palavra forte) ou legenda corrida palavra a palavra | Conforme `perfil.md` §6 (por formato) e o campo `legenda` do `video.md` | `marca/` (tipografia) | Referência de legenda (print ou vídeo) | essencial |
 | `numero` | Número grande que cresce até o valor | Faturamento, alunos, porcentagens, prazos | — | Os números que ele mais cita (resultados, base de clientes) | essencial |
 | `lista` | Itens que entram um a um | "3 erros", "4 passos", qualquer enumeração | — | — | essencial |
 | `citacao` | Frase ou palavra forte em destaque | Tese do vídeo, frase de efeito | — | Frases que ele repete | recomendado |
@@ -65,7 +65,7 @@ Pastas só são criadas quando chega o primeiro arquivo. Tipo novo só entra aqu
 
 | Tipo | O que é | Quando usar | Pasta da biblioteca | O que pedir ao autor | Prioridade |
 |---|---|---|---|---|---|
-| `b-roll` | Imagens de apoio sem fala: do autor (trabalhando, eventos, bastidores) ou de banco (situações citadas na fala) | Mudar o ambiente, ilustrar o que é dito, quebrar plano longo; pelo menos 1 troca de ambiente a cada ~3 min de aula (`estilo.md` §13) | `b-roll/` | Ele trabalhando, mãos no teclado, escritório, eventos, cidade, rotina (10 a 30 takes de 5 a 15 s). O de banco a skill busca | essencial |
+| `b-roll` | Imagens de apoio sem fala: do autor (trabalhando, eventos, bastidores) ou de banco (situações citadas na fala) | Mudar o ambiente, ilustrar o que é dito, quebrar plano longo; onde e com que frequência, a Direção do vídeo decide (`estilo.md` §13) | `b-roll/` | Ele trabalhando, mãos no teclado, escritório, eventos, cidade, rotina (10 a 30 takes de 5 a 15 s). O de banco a skill busca | essencial |
 | `tela` | Gravação de tela de produto/plataforma real, com cursor, clique e zoom feitos no Remotion | Mostrar ferramenta, planilha, dashboard | `telas/` | Quais plataformas mostra com frequência e quais exigem login. A fonte segue esta ordem: 1. gravação do autor (`brutos/`); 2. biblioteca; 3. gravação automática (Playwright); 4. gravação assistida (autor navega, script grava) | opcional |
 | `arquivo` | Imagem ou vídeo de terceiros: pessoa pública, evento, marca, notícia, trecho de outro criador (inclui react) | Toda vez que a fala cita pessoa pública, grupo de pessoas ("influenciadores", "médicos"), evento, marca ou notícia: propor sempre | `brutos/` do vídeo (pontual) | Nada: a skill pesquisa (ver seção 5). Se o autor já souber o vídeo, basta o link | recomendado |
 
@@ -73,15 +73,15 @@ Pastas só são criadas quando chega o primeiro arquivo. Tipo novo só entra aqu
 
 | Recurso | O que é | Padrão |
 |---|---|---|
-| Zoom / punch-in | Aproximar ou afastar o enquadramento (aberto/médio/fechado) | Troca a cada ~1,5 s em escada, ênfase no fechado, seco na maioria; regras em `estilo.md` §6.1 |
-| Reenquadramento | Acompanhar o rosto (rastreio) em todo plano e ao gerar vertical a partir de horizontal | Rosto deslocado para o terço oposto quando card entra de lado; no vertical, rosto no terço superior da zona segura |
-| Transição de câmera | Câmera vira card antes da tela de motion; volta com whip ou desfoque | `estilo.md` §6.1 |
+| Zoom / punch-in | Aproximar ou afastar o enquadramento (aberto/médio/fechado) | Três planos em escada, troca seca, ênfase no fechado; o intervalo de troca vem da Direção do vídeo (base e casos em `estilo.md` §6.1) |
+| Reenquadramento | Enquadrar o rosto em cada plano (travado por plano, sem seguir quadro a quadro) e ao gerar vertical a partir de horizontal | Rosto deslocado para o terço oposto quando card entra de lado; no vertical, rosto no terço superior da zona segura |
+| Transição de câmera | Como a câmera entra e sai de uma tela de motion (volta seca, câmera que vira card, whip, desfoque) | Escolha da Direção; base e opções em `estilo.md` §6.1 |
 | Layout | Como câmera e motion dividem a tela | Ver seção 3 |
 | Cor | LUT + correção por vídeo | `biblioteca/cor/` |
 | Trilha | Música de fundo por clima | `biblioteca/audio/` com prefixo `trilha_<clima>` |
 | `sfx` | Efeito curto sincronizado com motion | `biblioteca/audio/` com prefixo `sfx_<tipo>` (tabela abaixo) |
 
-SFX sugerido por elemento (o `estilo.md` pode desligar ou trocar):
+SFX por elemento: repertório para quando a Direção pede som em eventos visuais (`10 --modo eventos`). A base é som só com contexto (`estilo.md` §9); esta tabela não é para aplicar em todo item:
 
 | Elemento | SFX |
 |---|---|
@@ -125,7 +125,7 @@ Regras:
 - **Recorrente vai para a biblioteca; pontual vai para `videos/<slug>/brutos/`.** Se um material pontual servir para outros vídeos, a skill sugere promovê-lo.
 - **Nome descreve o conteúdo**: `<tipo>_<descricao>-<nn>.<ext>`, minúsculas, sem acento (ex.: `b-roll_escritorio-digitando-01.mov`, `prova_notificacao-venda-hotmart-02.png`). Arquivo que chega com nome de câmera (`IMG_4821.mov`) é olhado uma vez e renomeado na entrada.
 - **Sem dados sensíveis** em provas (nome de cliente, e-mail, CPF): borrar antes de salvar.
-- **Material de terceiros** só com licença comercial; anotar a origem no nome ou no `estilo.md`.
+- **Trilha, SFX e b-roll de banco**: só com licença que permita uso comercial (nunca CC BY-NC); origem anotada no `ORIGEM.md` da pasta. Cena `arquivo` (pessoa pública, evento, react) segue a seção 5: o autor decide.
 
 ---
 

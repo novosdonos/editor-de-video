@@ -3,7 +3,7 @@ video: <nn-slug>
 formato: aula | youtube | reels | criativo
 plataformas: [aula]
 modo_roteiro: topicos | integral
-legenda: animada | srt | nenhuma
+legenda: palavras-chave | corrida | srt | nenhuma
 trilha: nenhuma | <arquivo da biblioteca>
 etapa: roteiro | gravacao | preparar | transcrever | cortes | mapa | material | motion | camera | som | entregue
 aprovacoes:
@@ -57,13 +57,19 @@ Como decidir: `.claude/skills/video-editar/direcao.md`. Uma ou duas linhas por c
 
 ## Plano de cenas
 
-Preliminar (do roteiro) até a edição; final (ancorado em palavras da transcrição) depois do 03.
+**Preliminar (do roteiro)**: o que gravar e pesquisar antes.
 
-| # | Tipo | Raciocínio da fala | Formato (família do `estilo.md` §13) e por quê | Serve à direção porque | Conteúdo | Layout | Âncora (tópico → palavras) | Momento-chave | Material real / fonte | Status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | | | | proposta |
+| # | Tópico | O que a fala faz | Ideia de cena (e por que serve à direção) | Material real / fonte |
+|---|---|---|---|---|
+| 1 | | | | |
 
-Variedade (`estilo.md` §13): conferir numa linha só antes da aprovação, contra a base de repetição ou a que a direção definiu.
+**Mapa de motion (A3)**: sobre os cortes aprovados, ancorado em palavras da transcrição.
+
+| # | Tempo (editado) | Palavra-âncora | O que a fala faz | Formato (família do `estilo.md` §13) | Serve à direção porque | Câmera | Material real / fonte | Status |
+|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | | | proposta |
+
+Variedade (`estilo.md` §13): olhar a sequência inteira antes da aprovação; forma repetida sem motivo troca.
 
 Cena `tela`: fonte (autor / biblioteca / automática / assistida), URL, caminho de ações, trecho.
 Cena `arquivo`: o que buscar (pessoa/momento), fonte escolhida (link, canal), trecho usado.

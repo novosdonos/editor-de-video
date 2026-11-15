@@ -161,7 +161,6 @@ Ao fim do setup (e de cada sessão de setup), indique ao autor `guia/06-pedidos-
 
 Para não travar o primeiro vídeo bastam: `perfil.md` §1, §4, §5, §6 e §9 respondidos + `estilo.md` com o perfil escolhido + logo. O resto se completa com o uso; mostre o diagnóstico com o que ficou faltando, com o design system no topo se ainda não existir.
 
-## Estado atual do sistema (atualizar quando mudar)
+## Estado atual do sistema
 
-- Pronto: ambiente, pipeline 01–04 e 06–08, `elementos.md`, `plataformas.md`, verificador, remoção de fundo, catálogo Remotion com 5 variações (`citacao`, `numero`, `interface`, `lista`, `grafico`; ver `estilo.md` §10) e script de storyboard (`remotion/scripts/storyboard.mjs`).
-- Ainda não existe: componentes essenciais `gancho`, `titulo`, `nome-na-tela`, `prova`, `cta` (o kit da etapa 4 cobre só o que existe), integração das cenas na composição `Aula`, script de referências (fazer os passos da etapa 2 à mão), gravação de tela pelo Playwright, biblioteca de SFX.
+Lista única em "Estado atual do sistema" da `/video-editar` (para não envelhecer em dois lugares). Do que o setup usa, ainda não existe: componentes essenciais `gancho`, `nome-na-tela`, `prova` e `cta` (o kit da etapa 4 cobre só o que existe), script de referências (fazer os passos da etapa 2 à mão) e gravação de tela pelo Playwright.
