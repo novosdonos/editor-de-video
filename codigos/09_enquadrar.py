@@ -23,6 +23,9 @@ Regras (setup/estilo.md §6.1):
     - depois de cada cena volta no aberto com desfoque que resolve em ~0,3 s;
     - antes de cada cena, aproximação lenta (+--rampa no último segundo) prepara a transição;
     - durante cenas não há plano: a cena desenha a própria câmera.
+    - teto por item (seção "conferencia", gravada pelo 13): o motion fica fora do zoom da câmera; onde o 13 mediu
+      que um destaque pega no rosto com a câmera fechada, o plano daquele trecho abre até a escala em que o rosto
+      fica livre. --so-tetos aplica só isso nos planos já gravados, sem rastrear nem replanejar.
 
 Entrada: edicao/editado.mp4, edicao/transcricao.json ("palavras", "erros", "edicao") e a linha do
 tempo do Remotion (remotion/scripts/linha.mjs; sem ela, planeja sem cenas nem destaques e avisa).
@@ -267,6 +270,40 @@ def planejar(palavras: list[dict], emendas: list[float], linha: list[dict], dura
     return [p for p in planos if p["fim"] - p["inicio"] > 0.02]
 
 
+def aplicar_tetos(planos: list[dict], linha: list[dict], tetos: dict, escalas: dict) -> dict:
+    """
+    Abre o plano onde o motion pegaria no rosto. `tetos` = {id do item: maior escala com o rosto livre}, medido
+    pelo 13 na aula montada. O plano inteiro desce para o teto (abrir no meio do plano seria zoom que vai e volta);
+    vizinhos que ficam iguais viram um só. Devolve {id: escala aplicada} dos itens que mexeram na câmera.
+    Por que aqui e não no componente: o texto é desenhado sem saber o zoom; a câmera é quem sabe onde o rosto vai
+    estar, então é ela que cede (2026-11-13: frases certas no plano aberto atravessavam o rosto no fechado).
+    """
+    nome_de = {v: k for k, v in escalas.items()}
+    aplicados: dict = {}
+    for item in linha:
+        teto = tetos.get(item["id"])
+        if teto is None:
+            continue
+        a, b = item["inicio"], item["inicio"] + item["dur"]
+        for plano in planos:
+            if plano["inicio"] < b and a < plano["fim"] and plano["escala"] > teto + 1e-6:
+                plano["escala"] = teto
+                plano["plano"] = nome_de.get(teto, plano["plano"])
+                plano["teto"] = item["id"]
+                aplicados[item["id"]] = teto
+    unidos: list[dict] = []
+    for plano in planos:
+        ant = unidos[-1] if unidos else None
+        if (ant and abs(ant["fim"] - plano["inicio"]) < 0.05 and ant["escala"] == plano["escala"]
+                and plano.get("motivo") != "emenda" and ("teto" in ant or "teto" in plano)
+                and bool(ant.get("ancorar")) == bool(plano.get("ancorar"))):
+            ant["fim"] = plano["fim"]
+            continue
+        unidos.append(plano)
+    planos[:] = unidos
+    return aplicados
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Planeja zoom e reenquadramento (etapa 7) e grava a seção enquadramento.")
     parser.add_argument("video", type=Path, help="Pasta do vídeo (ou um arquivo de dentro dela)")
@@ -281,10 +318,24 @@ def main() -> None:
                         help="Deslocamento do rosto na emenda, em fração do quadro (x/y) ou da altura do rosto, a partir do "
                              "qual a emenda troca de plano para disfarçar o corte; o rosto anda ~0,06 em 0,1 s sem corte nenhum (padrão: 0.06)")
     parser.add_argument("--sem-exportar", action="store_true", help="Não roda o 08 no fim")
+    parser.add_argument("--so-tetos", action="store_true",
+                        help="Só abre a câmera nos trechos em que o 13 mediu motion sobre o rosto (seção conferencia); "
+                             "não rastreia nem replaneja")
     args = parser.parse_args()
 
     pasta = caminhos.video(args.video)
     caminho = pasta.transcricao
+    if args.so_tetos:
+        dados = transcricao.carregar(caminho, exigir=("enquadramento",))
+        secao = dados["enquadramento"]
+        tetos = dados.get("conferencia", {}).get("tetos", {})
+        aplicados = aplicar_tetos(secao["planos"], linha_do_remotion(pasta.nome), tetos, secao["escalas"])
+        secao["tetos"] = {**secao.get("tetos", {}), **aplicados}
+        transcricao.atualizar(caminho, {"enquadramento": secao})
+        print(f"Câmera aberta em {len(aplicados)} trecho(s): " + (", ".join(f"{k} (até {v:g}×)" for k, v in aplicados.items()) or "nenhum"))
+        if not args.sem_exportar:
+            EXPORTAR.exportar(pasta.pasta)
+        return
     dados = transcricao.carregar(caminho, exigir=("palavras", "edicao"))
     editada = transcricao.linha_do_tempo(caminho)  # para se os cortes mudaram depois do render
     if not pasta.editado.is_file():
@@ -313,6 +364,8 @@ def main() -> None:
         if m.any():
             plano["fx"] = round(float(np.median(tr[m, 1])), 4)
             plano["fy"] = round(float(np.median(tr[m, 2])), 4)
+    # tetos já medidos pelo 13 (motion sobre o rosto) continuam valendo quando a câmera é replanejada
+    tetos_aplicados = aplicar_tetos(planos, linha, dados.get("conferencia", {}).get("tetos", {}), escalas)
     zoom_06 = dados["edicao"].get("zoom", 1) or 1
     if zoom_06 > 1:
         # render antigo com o zoom alternado do 06 embutido nos trechos ímpares: desconta para não somar
@@ -334,6 +387,7 @@ def main() -> None:
         "amostras": args.amostras,
         "rosto": [[round(float(v), 3) for v in r] for r in rosto],
         "planos": planos,
+        "tetos": tetos_aplicados,
     }})
     print(f"{len(planos)} planos ({len(emendas)} emendas, {sum(i['tipo'] == 'cena' for i in linha)} cenas, "
           f"{sum(i['tipo'] == 'destaque' for i in linha)} destaques); troca média a cada "

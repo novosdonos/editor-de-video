@@ -37,8 +37,8 @@ from contextlib import contextmanager
 from pathlib import Path
 
 ORDEM_SECOES = ["arquivo", "modelo", "duracao", "erros", "cor", "edicao", "cenas", "enquadramento",
-                "sfx", "trilha", "remapa", "palavras"]
-PRESAS_AS_PALAVRAS = ("erros", "edicao", "cenas", "enquadramento", "sfx")
+                "sfx", "trilha", "remapa", "conferencia", "palavras"]
+PRESAS_AS_PALAVRAS = ("erros", "edicao", "cenas", "enquadramento", "sfx", "conferencia")
 
 
 def carregar_codigo(arquivo: str):
